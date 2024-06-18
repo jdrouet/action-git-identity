@@ -1,0 +1,18 @@
+name: 'git-identity'
+description: 'A GitHub Action to set git identity'
+author: 'Jeremie Drouet <jeremie.drouet@gmail.com>'
+
+branding:
+  icon: 'heart'
+  color: 'red'
+
+runs:
+  using: composite
+  steps:
+    - name: set user name
+      shell: bash
+      run: git config --global user.name 'github-actions[bot]'
+    - name: set user email
+      shell: bash
+      run: git config --global user.email "$GITHUB_ACTOR_ID+$GITHUB_ACTOR@users.noreply.github.com"
+
