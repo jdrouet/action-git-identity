@@ -15,9 +15,9 @@ inputs:
 runs:
   using: composite
   steps:
-    - name: set user name
+    - name: globally set user name
       shell: bash
-      run: git config --global user.name "${{ inputs.username }}"
-    - name: set default user email
+      run: git config user.name "${{ inputs.username }}"
+    - name: set user email
       shell: bash
-      run: git config --global user.email "$GITHUB_ACTOR_ID+$GITHUB_ACTOR@users.noreply.github.com"
+      run: git config user.email "$GITHUB_ACTOR_ID+$GITHUB_ACTOR@users.noreply.github.com"
